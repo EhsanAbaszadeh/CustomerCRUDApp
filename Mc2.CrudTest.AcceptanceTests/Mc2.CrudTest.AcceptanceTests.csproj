@@ -11,6 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="EntityFramework" Version="6.4.4" />
+        <PackageReference Include="libphonenumber-csharp" Version="8.13.36" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.22" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
         <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
         <PackageReference Include="SpecFlow.NUnit" Version="3.9.22" />
