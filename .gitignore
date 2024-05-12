@@ -1,0 +1,7 @@
+# Visual Studio / Rider / VS Code
+.vscode/
+.vs/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
