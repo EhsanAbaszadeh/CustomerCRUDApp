@@ -1,16 +1,16 @@
 ﻿using PhoneNumbers;
 using System.ComponentModel.DataAnnotations;
 
-namespace Mc2.CrudTest.AcceptanceTests.Models
+namespace Mc2.CrudTest.DataLayer
 {
     public class CustomerValidator
     {
-        public static ICollection<ValidationResult> ValidateCustomer(Customer customer, Func<string, Task<bool>> isEmailUnique)
+        public static async Task<ICollection<ValidationResult>> ValidateCustomerAsync(Customer customer, Func<string, Task<bool>> isEmailUnique)
         {
             var results = new List<ValidationResult>();
 
             ValidatePhoneNumber(customer.PhoneNumber, results);
-            ValidateEmail(customer.Email, results, isEmailUnique);
+            await ValidateEmailAsync(customer.Email, results, isEmailUnique);
             ValidateBankAccountNumber(customer.BankAccountNumber, results);
 
             return results;
@@ -33,7 +33,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Models
             }
         }
 
-        private static async Task ValidateEmail(string email, ICollection<ValidationResult> results, Func<string, Task<bool>> isEmailUnique)
+        private static async Task ValidateEmailAsync(string email, ICollection<ValidationResult> results, Func<string, Task<bool>> isEmailUnique)
         {
             if (!new EmailAddressAttribute().IsValid(email))
             {

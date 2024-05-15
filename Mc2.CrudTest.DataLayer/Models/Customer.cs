@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Mc2.CrudTest.AcceptanceTests.Models
+namespace Mc2.CrudTest.DataLayer
 {
     public class Customer
     {
+        public int CustomerId { get; set; } 
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
